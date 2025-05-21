@@ -11,38 +11,32 @@ class MovieCollection:
     def __init__(self):
         self.movies: dict[str, Movie] = {}
 
-    def add_movie(self, movie: Movie) -> bool:
+    def add_movie(self, movie: Movie) -> None:
         if movie.title in self.movies:
             print(f'Фильм {movie.title} уже существует')
-            return False
+            return
         else:
             self.movies[movie.title] = movie
             print(f'Фильм {movie.title} добавлен')
-            return True
+            return
 
-    def remove_movie(self, title: str) -> bool:
+    def remove_movie(self, title: str) -> None:
         if title not in self.movies:
             print('Фильм не найден')
-            return False
+            return
         else:
             del self.movies[title]
             print(f'Фильм {title} удален')
-            return True
+            return
 
     def find_movie_title(self, title: str) -> list[Movie]:
-        result = [i for i in self.movies.values() if title in i.title]
-        print(result)
-        return result
+        return [i for i in self.movies.values() if title in i.title]
 
     def find_movie_genre(self, genre: str) -> list[Movie]:
-        result = [i for i in self.movies.values() if genre in i.genre]
-        print(result)
-        return result
+        return [i for i in self.movies.values() if genre in i.genre]
 
     def find_movie_year(self, year: int) -> list[Movie]:
-        result = [i for i in self.movies.values() if year == i.year]
-        print(result)
-        return result
+        return [i for i in self.movies.values() if year == i.year]
 
     def __iter__(self) -> 'MovieIterator':
         return MovieIterator(list(self.movies.values()))
