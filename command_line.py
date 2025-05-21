@@ -22,7 +22,7 @@ def user_commands():
 
             if criterion == 'название':
                 value = input('Введите название: ').lower()
-                print(collection.find_movie_genre(value))
+                print(collection.find_movie_title(value))
 
             elif criterion == 'жанр':
                 value = input('Введите жанр: ').lower()
@@ -30,7 +30,7 @@ def user_commands():
 
             elif criterion == 'год':
                 value = int(input('Введите год: '))
-                print(collection.find_movie_genre(value))
+                print(collection.find_movie_year(value))
 
             else:
                 print('Критерий поиска не распознан')
