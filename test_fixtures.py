@@ -5,10 +5,10 @@ import pytest
 fake = Faker()
 
 genres = ['комедия', 'драма', 'ужасы', 'фантастика', 'боевик', 'мелодрама', 'детектив', 'мистика', 'триллер']
-word_count = random.randint(1, 5)
 
 @pytest.fixture
 def generate_valid_movie():
+    word_count = random.randint(1, 5)
     return {
         "title": fake.sentence(nb_words=word_count).strip('.'),
         "genre": random.choice(genres),
